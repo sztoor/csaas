@@ -9,9 +9,9 @@ app = Flask(__name__)
 @app.route('/cowsay/api/v1.0/saysomething', methods=['GET'])
 def cow_say():
     data=subprocess.check_output(["cowsay","Hello student"])
-    return jsonify({'cow_said':data})
+    return data
 
 if __name__ == '__main__':
-    ip = sys.argv[1]
-    app.run(str(ip),debug=True)
+    
+    app.run(host='0.0.0.0',debug=True)
 
